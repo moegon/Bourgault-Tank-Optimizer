@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Bourgault Tank Optimizer</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; display: flex; height: 100vh; }
+    #sidebar { width: 320px; background: #f6f6f6; border-right: 1px solid #ddd; padding: 16px; overflow-y: auto; }
+    #content { flex: 1; padding: 16px; overflow-y: auto; }
+    h1 { margin-top: 0; }
+    .row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+    label { min-width: 140px; }
+    input, select, button { padding: 6px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .product-row { display: grid; grid-template-columns: 1fr 120px 120px 80px; gap: 8px; margin-bottom: 6px; }
+    .muted { color: #666; font-size: 12px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag { background: #eef; color: #225; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    .danger { background: #fee; color: #722; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .small { font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <h2>Saved optimizations</h2>
+    <div id="history-list"></div>
+  </div>
+  <div id="content">
+    <h1>Bourgault Tank Optimizer</h1>
+    <div class="row">
+      <label>Unit system:</label>
+      <select id="unitSystem">
+        <option value="imperial">Imperial (lb/ac, acres)</option>
+        <option value="metric">Metric (kg/ha, hectares)</option>
+      </select>
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="row">
+          <label>Model:</label>
+          <select id="model"></select>
+        </div>
+        <div class="row">
+          <label>Field size:</label>
+          <input type="number" id="fieldSize" min="0" step="0.01" value="160" />
+          <span id="areaUnit" class="tag">ac</span>
+        </div>
+        <div class="row">
+          <label>Plan name:</label>
+          <input type="text" id="planName" placeholder="e.g., Wheat+Urea 160ac SE quarter" />
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <label>Add product:</label>
+          <select id="productCatalog"></select>
+          <input type="number" id="productRate" placeholder="Rate" min="0" step="0.01" />
+          <button id="addProduct">Add</button>
+        </div>
+        <div class="small muted">Rates use the selected unit system (lb/ac or kg/ha). Densities are typical; adjust rates as needed.</div>
+      </div>
+    </div>
+
+    <h3>Products in this plan</h3>
+    <div id="productRows"></div>
+
+    <div class="actions">
+      <button id="calculate">Calculate allocation</button>
+      <button id="savePlan">Save plan</button>
+    </div>
+
+    <div id="results"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

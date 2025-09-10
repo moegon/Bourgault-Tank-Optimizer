@@ -1,0 +1,48 @@
+{
+  "name": "bourgault-tank-optimizer",
+  "version": "1.1.0",
+  "description": "Bourgault 9000 I-Series Air Cart Tank Optimizer with save/load and metric support",
+  "main": "main.js",
+  "author": "moses",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+  "dist": "electron-builder",
+  "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.6.4"
+  ,"mocha": "^10.2.0",
+  "chai": "^4.3.7"
+  },
+  "build": {
+  "icon": "assets/icon.svg",
+    "appId": "com.moses.bourgault.tankoptimizer",
+    "productName": "Bourgault Tank Optimizer",
+    "files": [
+      "main.js",
+      "index.html",
+      "renderer.js",
+      "data.js",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "extraResources": [],
+    "mac": {
+      "target": ["dmg", "zip"],
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": ["nsis", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "zip"],
+      "category": "Utility"
+    }
+  }
+}
