@@ -9,7 +9,8 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
   "dist": "electron-builder",
-  "test": "mocha"
+  "test": "mocha",
+  "icons:generate": "bash scripts/generate-icons.sh"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,7 +20,7 @@
   "chai": "^4.3.7"
   },
   "build": {
-  "icon": "assets/icon.svg",
+  "icon": "assets/icon",
     "appId": "com.moses.bourgault.tankoptimizer",
     "productName": "Bourgault Tank Optimizer",
     "files": [
@@ -34,14 +35,17 @@
     },
     "extraResources": [],
     "mac": {
-      "target": ["dmg", "zip"],
+  "icon": "assets/icon.icns",
+  "target": ["dmg", "zip"],
       "category": "public.app-category.productivity"
     },
     "win": {
-      "target": ["nsis", "zip"]
+  "icon": "assets/icon.ico",
+  "target": ["nsis", "zip"]
     },
     "linux": {
-      "target": ["AppImage", "deb", "zip"],
+  "icon": "assets/icon.png",
+  "target": ["AppImage", "deb", "zip"],
       "category": "Utility"
     }
   }
