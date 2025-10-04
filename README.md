@@ -1,6 +1,6 @@
 # Bourgault Tank Optimizer
 
-Desktop app to optimize tank allocations for Bourgault 9000 I-Series air carts.
+Desktop and iOS apps to optimize tank allocations for Bourgault 9000 I-Series air carts.
 
 ## Features
 - Select model (91300, 9950, 9650, L9950, L9650)
@@ -29,6 +29,18 @@ Creates `dist/Bourgault-Tank-Optimizer.dmg` (notarization/signing recommended fo
 
 - Linux:
 Creates AppImage/Deb packages in `dist/`.
+
+## iOS Version
+
+An iOS version of the app is available in the `iOS/` directory. See [iOS/README.md](iOS/README.md) for details on building and running the iOS app.
+
+### iOS Quick Start
+```bash
+cd iOS
+open BourgaultTankOptimizer.xcodeproj
+```
+
+Then build and run in Xcode (Cmd+R). Requires Xcode 15+ and iOS 16+.
 
 ## Notes
 - Densities vary by variety, moisture, and blend. Adjust rates accordingly.
