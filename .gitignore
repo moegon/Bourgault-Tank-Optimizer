@@ -2,3 +2,19 @@ node_modules/
 dist/
 *.log
 .DS_Store
+
+# iOS / Xcode
+iOS/build/
+iOS/DerivedData/
+*.xcuserstate
+*.xcuserdatad
+*.xcworkspace/xcuserdata/
+*.moved-aside
+*.swp
+*~.nib
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.pbxuser
+!iOS/BourgaultTankOptimizer.xcodeproj/xcshareddata/
